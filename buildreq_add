@@ -1,0 +1,9 @@
+httpretty-python
+python-mock
+nose-python
+pbr
+pip
+python3-dev
+python-dev
+requests-python
+setuptools
