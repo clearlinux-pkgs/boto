@@ -4,7 +4,7 @@
 #
 Name     : boto
 Version  : 2.38.0
-Release  : 17
+Release  : 18
 URL      : https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz
 Summary  : Amazon Web Services Library
