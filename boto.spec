@@ -4,7 +4,7 @@
 #
 Name     : boto
 Version  : 2.38.0
-Release  : 18
+Release  : 19
 URL      : https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz
 Summary  : Amazon Web Services Library
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : MIT
 Requires: boto-bin
 Requires: boto-python
+BuildRequires : funcsigs-python
 BuildRequires : httpretty-python
 BuildRequires : nose-python
 BuildRequires : pbr
@@ -21,6 +22,8 @@ BuildRequires : python-mock
 BuildRequires : python3-dev
 BuildRequires : requests-python
 BuildRequires : setuptools
+BuildRequires : six
+BuildRequires : six-python
 
 %description
 Handling of file:// URIs:
