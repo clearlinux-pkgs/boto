@@ -4,9 +4,9 @@
 #
 Name     : boto
 Version  : 2.41.0
-Release  : 26
-URL      : https://pypi.python.org/packages/e9/74/7ef3431c37fc1f51f98cc04491cdb112dcd9f474c83b275e1a1450c24527/boto-2.41.0.tar.gz
-Source0  : https://pypi.python.org/packages/e9/74/7ef3431c37fc1f51f98cc04491cdb112dcd9f474c83b275e1a1450c24527/boto-2.41.0.tar.gz
+Release  : 27
+URL      : http://pypi.debian.net/boto/boto-2.41.0.tar.gz
+Source0  : http://pypi.debian.net/boto/boto-2.41.0.tar.gz
 Summary  : Amazon Web Services Library
 Group    : Development/Tools
 License  : MIT
@@ -51,6 +51,7 @@ python components for the boto package.
 %setup -q -n boto-2.41.0
 
 %build
+export LANG=C
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
