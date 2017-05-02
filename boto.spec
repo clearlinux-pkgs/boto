@@ -4,7 +4,7 @@
 #
 Name     : boto
 Version  : 2.46.1
-Release  : 35
+Release  : 36
 URL      : http://pypi.debian.net/boto/boto-2.46.1.tar.gz
 Source0  : http://pypi.debian.net/boto/boto-2.46.1.tar.gz
 Summary  : Amazon Web Services Library
