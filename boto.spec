@@ -4,13 +4,14 @@
 #
 Name     : boto
 Version  : 2.48.0
-Release  : 38
+Release  : 39
 URL      : http://pypi.debian.net/boto/boto-2.48.0.tar.gz
 Source0  : http://pypi.debian.net/boto/boto-2.48.0.tar.gz
 Summary  : Amazon Web Services Library
 Group    : Development/Tools
 License  : MIT
 Requires: boto-bin
+Requires: boto-legacypython
 Requires: boto-python
 BuildRequires : httpretty-python
 BuildRequires : nose-python
@@ -23,10 +24,9 @@ BuildRequires : requests-python
 BuildRequires : setuptools
 
 %description
-Handling of file:// URIs:
-This directory contains code to map basic boto connection, bucket, and key
-operations onto files in the local filesystem, in support of file://
-URI operations.
+boto
+        ####
+        boto 2.48.0
 
 %package bin
 Summary: bin components for the boto package.
@@ -36,9 +36,18 @@ Group: Binaries
 bin components for the boto package.
 
 
+%package legacypython
+Summary: legacypython components for the boto package.
+Group: Default
+
+%description legacypython
+legacypython components for the boto package.
+
+
 %package python
 Summary: python components for the boto package.
 Group: Default
+Requires: boto-legacypython
 
 %description python
 python components for the boto package.
@@ -52,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1499403242
+export SOURCE_DATE_EPOCH=1504998642
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -62,7 +71,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 tests/test.py default || :
 %install
-export SOURCE_DATE_EPOCH=1499403242
+export SOURCE_DATE_EPOCH=1504998642
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -97,7 +106,10 @@ echo ----[ mark ]----
 /usr/bin/sdbadmin
 /usr/bin/taskadmin
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
