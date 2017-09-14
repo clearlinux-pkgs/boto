@@ -4,7 +4,7 @@
 #
 Name     : boto
 Version  : 2.48.0
-Release  : 39
+Release  : 40
 URL      : http://pypi.debian.net/boto/boto-2.48.0.tar.gz
 Source0  : http://pypi.debian.net/boto/boto-2.48.0.tar.gz
 Summary  : Amazon Web Services Library
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1504998642
+export SOURCE_DATE_EPOCH=1505364269
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -71,7 +71,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 tests/test.py default || :
 %install
-export SOURCE_DATE_EPOCH=1504998642
+export SOURCE_DATE_EPOCH=1505364269
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force

@@ -1,4 +1,4 @@
 # This file contains recursive sources that require this package
-compute-image-packages-0:20170829-7.src
-gensim-0:2.3.0-6.src
-smart_open-0:1.5.3-8.src
+compute-image-packages
+gensim
+smart_open
