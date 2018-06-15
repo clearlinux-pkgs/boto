@@ -17,7 +17,7 @@ BuildRequires : httpretty-python
 BuildRequires : nose-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python-mock
 BuildRequires : python3-dev
 BuildRequires : requests-python
