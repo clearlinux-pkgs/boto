@@ -4,7 +4,7 @@
 #
 Name     : boto
 Version  : 2.49.0
-Release  : 60
+Release  : 61
 URL      : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
 Source0  : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
 Summary  : Amazon Web Services Library
