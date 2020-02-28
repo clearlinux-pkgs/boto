@@ -4,15 +4,15 @@
 #
 Name     : boto
 Version  : 2.49.0
-Release  : 63
+Release  : 64
 URL      : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
 Source0  : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
 Summary  : Amazon Web Services Library
 Group    : Development/Tools
 License  : MIT
-Requires: boto-bin
-Requires: boto-python3
-Requires: boto-python
+Requires: boto-bin = %{version}-%{release}
+Requires: boto-python = %{version}-%{release}
+Requires: boto-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : httpretty-python
 BuildRequires : nose-python
@@ -24,9 +24,10 @@ BuildRequires : requests-python
 BuildRequires : setuptools
 
 %description
-boto
-        ####
-        boto 2.49.0
+Handling of file:// URIs:
+This directory contains code to map basic boto connection, bucket, and key
+operations onto files in the local filesystem, in support of file://
+URI operations.
 
 %package bin
 Summary: bin components for the boto package.
@@ -39,7 +40,7 @@ bin components for the boto package.
 %package python
 Summary: python components for the boto package.
 Group: Default
-Requires: boto-python3
+Requires: boto-python3 = %{version}-%{release}
 
 %description python
 python components for the boto package.
@@ -49,6 +50,7 @@ python components for the boto package.
 Summary: python3 components for the boto package.
 Group: Default
 Requires: python3-core
+Provides: pypi(boto)
 
 %description python3
 python3 components for the boto package.
@@ -56,14 +58,22 @@ python3 components for the boto package.
 
 %prep
 %setup -q -n boto-2.49.0
+cd %{_builddir}/boto-2.49.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1532187429
-python3 setup.py build -b py3
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1582851680
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -71,8 +81,9 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 tests/test.py default || :
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----

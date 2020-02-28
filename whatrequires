@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
 compute-image-packages
-gensim
+gcs-oauth2-boto-plugin
+gsutil
 smart_open
