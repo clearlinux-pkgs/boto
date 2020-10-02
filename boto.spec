@@ -4,9 +4,9 @@
 #
 Name     : boto
 Version  : 2.49.0
-Release  : 65
-URL      : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
-Source0  : http://pypi.debian.net/boto/boto-2.49.0.tar.gz
+Release  : 66
+URL      : https://files.pythonhosted.org/packages/c8/af/54a920ff4255664f5d238b5aebd8eedf7a07c7a5e71e27afcfe840b82f51/boto-2.49.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/c8/af/54a920ff4255664f5d238b5aebd8eedf7a07c7a5e71e27afcfe840b82f51/boto-2.49.0.tar.gz
 Summary  : Amazon Web Services Library
 Group    : Development/Tools
 License  : MIT
@@ -24,10 +24,9 @@ BuildRequires : requests-python
 BuildRequires : setuptools
 
 %description
-Handling of file:// URIs:
-This directory contains code to map basic boto connection, bucket, and key
-operations onto files in the local filesystem, in support of file://
-URI operations.
+boto
+        ####
+        boto 2.49.0
 
 %package bin
 Summary: bin components for the boto package.
@@ -65,12 +64,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582851680
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1601606791
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build

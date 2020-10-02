@@ -2,4 +2,3 @@
 compute-image-packages
 gcs-oauth2-boto-plugin
 gsutil
-smart_open
